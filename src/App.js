@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import { useAuthContext } from "./hooks/useAuthContext";
-import PrivateRoute from "./pages/PrivateRoute";
+
 
 function App() {
 
