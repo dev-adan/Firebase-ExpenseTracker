@@ -1,18 +1,22 @@
-import React,{useState,useEffect} from 'react';
+import {useState,useEffect} from 'react';
 import { db } from "../firebase/config";
-import {collection,onSnapshot } from 'firebase/firestore'
+import {collection,onSnapshot,query, where,orderBy  } from 'firebase/firestore'
 
 
 
-const useCollection = (collectionName) => {
+const useCollection = (collectionName,collectionQuery) => {
 
     const [documents,setDocuments] = useState(null);
     const [error,setError] = useState(null);
 
-
+ 
     useEffect(() => {
 
-        const ref = collection(db,collectionName);
+        let ref = collection(db,collectionName);
+
+        if(collectionQuery){
+            ref = query(ref,orderBy("createdAt",'desc'),where(...collectionQuery) )
+        }
 
         const unsub = onSnapshot(ref,(refSnapshot) => {
           
