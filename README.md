@@ -1,6 +1,6 @@
 # You can view the live site here
 
-# visit =>  hhttps://edens-mymoney.netlify.app
+# visit =>  https://edens-mymoney.netlify.app
 
 
 
