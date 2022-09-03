@@ -3,7 +3,6 @@ import { db } from "../firebase/config";
 import {collection,onSnapshot,query, where,orderBy  } from 'firebase/firestore'
 
 
-
 const useCollection = (collectionName,collectionQuery) => {
 
     const [documents,setDocuments] = useState(null);

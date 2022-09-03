@@ -3,7 +3,6 @@ import { auth } from "../firebase/config"
 import { createUserWithEmailAndPassword,updateProfile  } from "firebase/auth";
 import { useAuthContext } from "./useAuthContext";
 
-
 export const useSignup = () => {
 
     const [error,setError] = useState(null);
@@ -14,7 +13,6 @@ export const useSignup = () => {
 
         setError(null);
         setIsPending(true);
-
 
         try{
            const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -28,19 +26,14 @@ export const useSignup = () => {
 
            dispatch({type : 'LOGIN', payload : res.user})
 
-
-
            setIsPending(false);
            setError(null);
             
-
         }catch(error){
             console.log(error.message)
             setError(error.message)
             setIsPending(false)
-
         }
-
     }
 
     return {error,isPending,Signup}
